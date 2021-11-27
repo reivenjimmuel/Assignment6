@@ -6,24 +6,19 @@ def userInput():
     answer = int(input(f'{firstNumber} + {secondNumber} = '))
     return firstNumber, secondNumber, answer
 
-def checkAnswer(answer, solution):
-    count = 0
-    if answer == solution:
-        count = count + 1
-        print('Correct! Nice Job!')
-        return count
-    else:
-        print('Wrong Answer. Try Again.')
-        return count
-
 print('Test your knowledge with Addition Trainer!')
 print('Please enter your answer on the following quesions:')
 
 numberOfProblems = 10
+count = 0
+
 for i in range(numberOfProblems):
     firstN, secondN, userAnswer = userInput()
     solution = firstN + secondN
-    count = 0
-    score = checkAnswer(userAnswer, solution)
+    if userAnswer == solution:
+        count = count + 1
+        print('Correct! Nice Job!')
+    else:
+        print('Wrong Answer. Try Again.')
 
-print(f'Your total score is {score}/10.')
+print(f'Your total score is {count}/10.')
